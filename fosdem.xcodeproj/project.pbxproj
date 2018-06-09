@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8A65B9E420CC747800552D85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9E320CC747800552D85 /* AppDelegate.swift */; };
-		8A65B9E620CC747800552D85 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9E520CC747800552D85 /* FirstViewController.swift */; };
-		8A65B9E820CC747800552D85 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9E720CC747800552D85 /* SecondViewController.swift */; };
+		8A65B9E620CC747800552D85 /* ItineraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9E520CC747800552D85 /* ItineraryController.swift */; };
+		8A65B9E820CC747800552D85 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9E720CC747800552D85 /* SearchController.swift */; };
 		8A65B9EB20CC747800552D85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A65B9E920CC747800552D85 /* Main.storyboard */; };
 		8A65B9ED20CC747A00552D85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A65B9EC20CC747A00552D85 /* Assets.xcassets */; };
 		8A65B9F020CC747A00552D85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A65B9EE20CC747A00552D85 /* LaunchScreen.storyboard */; };
@@ -37,8 +37,8 @@
 /* Begin PBXFileReference section */
 		8A65B9E020CC747700552D85 /* fosdem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fosdem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A65B9E320CC747800552D85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8A65B9E520CC747800552D85 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		8A65B9E720CC747800552D85 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		8A65B9E520CC747800552D85 /* ItineraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryController.swift; sourceTree = "<group>"; };
+		8A65B9E720CC747800552D85 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		8A65B9EA20CC747800552D85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A65B9EC20CC747A00552D85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A65B9EF20CC747A00552D85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				8A65B9E320CC747800552D85 /* AppDelegate.swift */,
-				8A65B9E520CC747800552D85 /* FirstViewController.swift */,
-				8A65B9E720CC747800552D85 /* SecondViewController.swift */,
+				8A65B9E520CC747800552D85 /* ItineraryController.swift */,
+				8A65B9E720CC747800552D85 /* SearchController.swift */,
 				8A65B9E920CC747800552D85 /* Main.storyboard */,
 				8A65B9EC20CC747A00552D85 /* Assets.xcassets */,
 				8A65B9EE20CC747A00552D85 /* LaunchScreen.storyboard */,
@@ -259,9 +259,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A65B9E820CC747800552D85 /* SecondViewController.swift in Sources */,
+				8A65B9E820CC747800552D85 /* SearchController.swift in Sources */,
 				8A65B9E420CC747800552D85 /* AppDelegate.swift in Sources */,
-				8A65B9E620CC747800552D85 /* FirstViewController.swift in Sources */,
+				8A65B9E620CC747800552D85 /* ItineraryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
