@@ -1,5 +1,5 @@
 //
-//  ItineraryController.swift
+//  TracksController.swift
 //  fosdem
 //
 //  Created by Houman Brinjcargorabi on 09/06/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItineraryController: UIViewController {
+class TracksController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

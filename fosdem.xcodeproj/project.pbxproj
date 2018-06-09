@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		8A65B9E420CC747800552D85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9E320CC747800552D85 /* AppDelegate.swift */; };
 		8A65B9E620CC747800552D85 /* ItineraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9E520CC747800552D85 /* ItineraryController.swift */; };
-		8A65B9E820CC747800552D85 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9E720CC747800552D85 /* SearchController.swift */; };
+		8A65B9E820CC747800552D85 /* TracksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9E720CC747800552D85 /* TracksController.swift */; };
 		8A65B9EB20CC747800552D85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A65B9E920CC747800552D85 /* Main.storyboard */; };
 		8A65B9ED20CC747A00552D85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A65B9EC20CC747A00552D85 /* Assets.xcassets */; };
 		8A65B9F020CC747A00552D85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A65B9EE20CC747A00552D85 /* LaunchScreen.storyboard */; };
 		8A65B9FB20CC747A00552D85 /* fosdemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9FA20CC747A00552D85 /* fosdemTests.swift */; };
 		8A65BA0620CC747A00552D85 /* fosdemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA0520CC747A00552D85 /* fosdemUITests.swift */; };
+		8A65BA1A20CD5DBF00552D85 /* DataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA1920CD5DBF00552D85 /* DataReader.swift */; };
+		8A65BA1B20CD5DBF00552D85 /* DataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA1920CD5DBF00552D85 /* DataReader.swift */; };
+		8A65BA1D20CD5E7B00552D85 /* Talks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA1C20CD5E7B00552D85 /* Talks.swift */; };
+		8A65BA1E20CD5E7B00552D85 /* Talks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA1C20CD5E7B00552D85 /* Talks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,7 @@
 		8A65B9E020CC747700552D85 /* fosdem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fosdem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A65B9E320CC747800552D85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A65B9E520CC747800552D85 /* ItineraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryController.swift; sourceTree = "<group>"; };
-		8A65B9E720CC747800552D85 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		8A65B9E720CC747800552D85 /* TracksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksController.swift; sourceTree = "<group>"; };
 		8A65B9EA20CC747800552D85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A65B9EC20CC747A00552D85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A65B9EF20CC747A00552D85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 		8A65BA0120CC747A00552D85 /* fosdemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fosdemUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A65BA0520CC747A00552D85 /* fosdemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fosdemUITests.swift; sourceTree = "<group>"; };
 		8A65BA0720CC747A00552D85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A65BA1920CD5DBF00552D85 /* DataReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReader.swift; sourceTree = "<group>"; };
+		8A65BA1C20CD5E7B00552D85 /* Talks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Talks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +105,12 @@
 		8A65B9E220CC747700552D85 /* fosdem */ = {
 			isa = PBXGroup;
 			children = (
+				8A65BA1820CD5D9000552D85 /* DataReader */,
+				8A65BA1720CD5BB400552D85 /* Views */,
+				8A65BA1620CD5B9D00552D85 /* Models */,
+				8A65BA1520CD5B8800552D85 /* Controllers */,
 				8A65B9E320CC747800552D85 /* AppDelegate.swift */,
-				8A65B9E520CC747800552D85 /* ItineraryController.swift */,
-				8A65B9E720CC747800552D85 /* SearchController.swift */,
-				8A65B9E920CC747800552D85 /* Main.storyboard */,
 				8A65B9EC20CC747A00552D85 /* Assets.xcassets */,
-				8A65B9EE20CC747A00552D85 /* LaunchScreen.storyboard */,
 				8A65B9F120CC747A00552D85 /* Info.plist */,
 			);
 			path = fosdem;
@@ -128,6 +134,40 @@
 			path = fosdemUITests;
 			sourceTree = "<group>";
 		};
+		8A65BA1520CD5B8800552D85 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8A65B9E720CC747800552D85 /* TracksController.swift */,
+				8A65B9E520CC747800552D85 /* ItineraryController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8A65BA1620CD5B9D00552D85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8A65BA1C20CD5E7B00552D85 /* Talks.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8A65BA1720CD5BB400552D85 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8A65B9E920CC747800552D85 /* Main.storyboard */,
+				8A65B9EE20CC747A00552D85 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8A65BA1820CD5D9000552D85 /* DataReader */ = {
+			isa = PBXGroup;
+			children = (
+				8A65BA1920CD5DBF00552D85 /* DataReader.swift */,
+			);
+			path = DataReader;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +178,7 @@
 				8A65B9DC20CC747700552D85 /* Sources */,
 				8A65B9DD20CC747700552D85 /* Frameworks */,
 				8A65B9DE20CC747700552D85 /* Resources */,
+				8A65BA1420CC824C00552D85 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -254,12 +295,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8A65BA1420CC824C00552D85 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 \\\n    | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" \\\n    | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8A65B9DC20CC747700552D85 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A65B9E820CC747800552D85 /* SearchController.swift in Sources */,
+				8A65BA1A20CD5DBF00552D85 /* DataReader.swift in Sources */,
+				8A65B9E820CC747800552D85 /* TracksController.swift in Sources */,
+				8A65BA1D20CD5E7B00552D85 /* Talks.swift in Sources */,
 				8A65B9E420CC747800552D85 /* AppDelegate.swift in Sources */,
 				8A65B9E620CC747800552D85 /* ItineraryController.swift in Sources */,
 			);
@@ -269,7 +332,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A65BA1B20CD5DBF00552D85 /* DataReader.swift in Sources */,
 				8A65B9FB20CC747A00552D85 /* fosdemTests.swift in Sources */,
+				8A65BA1E20CD5E7B00552D85 /* Talks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

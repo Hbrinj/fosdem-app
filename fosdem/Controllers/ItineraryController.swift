@@ -1,5 +1,5 @@
 //
-//  SearchController.swift
+//  ItineraryController.swift
 //  fosdem
 //
 //  Created by Houman Brinjcargorabi on 09/06/2018.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SearchController: UIViewController {
+//TODO: Hello
+class ItineraryController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
