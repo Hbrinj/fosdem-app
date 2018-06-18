@@ -8,5 +8,16 @@
 
 import Foundation
 
-class Talks {
+struct Talk {
+    let id: Int
+    let title: String
+    let subTitle: String?
+    let startTime: String
+    let duration: String
+    let type: String
+    let abstract: String
+    let track: String
+    let description: String
+    let people: [String]
+    let links: [String]
 }

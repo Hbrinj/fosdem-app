@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DataReader {
-    func parseSchedule() -> [Talks]
+    func parseSchedule() -> [Talk]
 }
