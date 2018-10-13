@@ -27,3 +27,6 @@ xcuserdata
 # CocoaPods
 Pods/
 *.lock
+
+#mac things
+.DS_Store
