@@ -8,21 +8,24 @@
 
 import UIKit
 
-class TracksController: UIViewController {
-    private var _reader: DataReader!
-
+class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var schedule: Schedule!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        _reader = DependencyFactory.getInstanceOf(object: DataReader.self)
-        let x:[Talk] = _reader.parseSchedule()
-        for z in x {
-            print(z)
-        }
-        //_reader = DependencyFactory.getInstance().getInstanceOf<DataReader>()
-        //_reader!.parseSchedule()
+        //TODO: This should probably be in the dep factory somehow...
+        schedule = Schedule()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return schedule.getTracks().count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath)
+        cell.textLabel?.text = schedule.getTracks()[indexPath.row]
+        return cell
+    }
+    
 }
-

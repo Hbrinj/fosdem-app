@@ -1,5 +1,5 @@
 # Fosdem APP
 
 ## Prerequisites
-	- Carthage
+	- CocoaPods
 

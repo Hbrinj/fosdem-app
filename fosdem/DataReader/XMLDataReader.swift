@@ -11,10 +11,17 @@ import Foundation
 class XMLDataReader: DataReader {
     private let SCHEDULE_PATH = "."
     func parseSchedule() -> [Talk] {
-        let scheduleUrl = URL(fileURLWithPath: SCHEDULE_PATH)
-        print(scheduleUrl)
-        let scheduleStream = InputStream(url: scheduleUrl)
-        let scheduleParser = ScheduleParser(input:scheduleStream!)
-        return scheduleParser.parse() 
+        //TODO: should they just return empty?
+        guard let path = Bundle.main.url(forResource: "2018", withExtension: "xml") else {
+            print("Couldn't find the file")
+            return []
+        }
+        do {
+            let content = try String(contentsOf: path, encoding: .utf8)
+            return ScheduleParser().parse(xml: content)
+        } catch {
+            print("Error:", error)
+            return []
+        }
     }
 }

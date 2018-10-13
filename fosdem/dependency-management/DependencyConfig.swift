@@ -10,6 +10,12 @@ import Foundation
 
 extension DependencyFactory {
     @objc public func register() {
+        
+        // The reader
         self.insert(objectof: DataReader.self, object: XMLDataReader())
+        
+        // The talk data
+        let reader: DataReader = XMLDataReader()
+        self.insert(objectof: Array<Talk>.self , object: reader.parseSchedule() as AnyObject, with: "Talks")
     }
 }

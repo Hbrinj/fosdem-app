@@ -19,12 +19,14 @@
 		8A65BA0620CC747A00552D85 /* fosdemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA0520CC747A00552D85 /* fosdemUITests.swift */; };
 		8A65BA1A20CD5DBF00552D85 /* DataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA1920CD5DBF00552D85 /* DataReader.swift */; };
 		8A65BA1B20CD5DBF00552D85 /* DataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA1920CD5DBF00552D85 /* DataReader.swift */; };
-		8A65BA1D20CD5E7B00552D85 /* Talks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA1C20CD5E7B00552D85 /* Talks.swift */; };
-		8A65BA1E20CD5E7B00552D85 /* Talks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA1C20CD5E7B00552D85 /* Talks.swift */; };
+		8A65BA1D20CD5E7B00552D85 /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA1C20CD5E7B00552D85 /* Talk.swift */; };
+		8A65BA1E20CD5E7B00552D85 /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA1C20CD5E7B00552D85 /* Talk.swift */; };
 		8A65BA2E20CDC24800552D85 /* XMLDataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA2D20CDC24800552D85 /* XMLDataReader.swift */; };
 		8A65BA3320D6B07400552D85 /* ScheduleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA3220D6B07400552D85 /* ScheduleParser.swift */; };
 		8A65BA3920D6B9F600552D85 /* DependecyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA3820D6B9F600552D85 /* DependecyFactory.swift */; };
 		8A65BA3C20D83B8F00552D85 /* DependencyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA3B20D83B8F00552D85 /* DependencyConfig.swift */; };
+		8AA2D57F2163F4380032AB23 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA2D57E2163F4380032AB23 /* Schedule.swift */; };
+		8AC4709E21721836001577B9 /* 2018.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8AC4709D21721836001577B9 /* 2018.xml */; };
 		F237F7D8C61A71C64669B9FE /* Pods_fosdemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FC5F99583F8914D29A8A42 /* Pods_fosdemTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,11 +66,13 @@
 		8A65BA0520CC747A00552D85 /* fosdemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fosdemUITests.swift; sourceTree = "<group>"; };
 		8A65BA0720CC747A00552D85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A65BA1920CD5DBF00552D85 /* DataReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReader.swift; sourceTree = "<group>"; };
-		8A65BA1C20CD5E7B00552D85 /* Talks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Talks.swift; sourceTree = "<group>"; };
+		8A65BA1C20CD5E7B00552D85 /* Talk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Talk.swift; sourceTree = "<group>"; };
 		8A65BA2D20CDC24800552D85 /* XMLDataReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XMLDataReader.swift; path = Fosdem/DataReader/XMLDataReader.swift; sourceTree = SOURCE_ROOT; };
 		8A65BA3220D6B07400552D85 /* ScheduleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleParser.swift; path = Fosdem/DataReader/parser/ScheduleParser.swift; sourceTree = SOURCE_ROOT; };
 		8A65BA3820D6B9F600552D85 /* DependecyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependecyFactory.swift; sourceTree = "<group>"; };
 		8A65BA3B20D83B8F00552D85 /* DependencyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DependencyConfig.swift; path = "Fosdem/dependency-management/DependencyConfig.swift"; sourceTree = SOURCE_ROOT; };
+		8AA2D57E2163F4380032AB23 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = Fosdem/Models/Schedule.swift; sourceTree = SOURCE_ROOT; };
+		8AC4709D21721836001577B9 /* 2018.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 2018.xml; path = Fosdem/Assets/Schedule/2018.xml; sourceTree = SOURCE_ROOT; };
 		B8FC5F99583F8914D29A8A42 /* Pods_fosdemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fosdemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D913E268EDDB23913AF9E178 /* Pods-fosdemTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fosdemTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fosdemTests/Pods-fosdemTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0281843DAF4A83055EF3F25 /* Pods_fosdem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fosdem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,7 +147,7 @@
 		8A65B9E220CC747700552D85 /* fosdem */ = {
 			isa = PBXGroup;
 			children = (
-				8A65BA3420D6B38600552D85 /* Data */,
+				8A65BA3420D6B38600552D85 /* Assets */,
 				8A65BA1820CD5D9000552D85 /* DataReader */,
 				8A65BA1720CD5BB400552D85 /* Views */,
 				8A65BA1620CD5B9D00552D85 /* Models */,
@@ -177,6 +181,7 @@
 		8A65BA1520CD5B8800552D85 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8AA2D57B2163EEC70032AB23 /* Cells */,
 				8A65B9E720CC747800552D85 /* TracksController.swift */,
 				8A65B9E520CC747800552D85 /* ItineraryController.swift */,
 			);
@@ -186,7 +191,8 @@
 		8A65BA1620CD5B9D00552D85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8A65BA1C20CD5E7B00552D85 /* Talks.swift */,
+				8A65BA1C20CD5E7B00552D85 /* Talk.swift */,
+				8AA2D57E2163F4380032AB23 /* Schedule.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,17 +224,18 @@
 			path = parser;
 			sourceTree = "<group>";
 		};
-		8A65BA3420D6B38600552D85 /* Data */ = {
+		8A65BA3420D6B38600552D85 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				8A65BA3520D6B39300552D85 /* Schedule */,
 			);
-			path = Data;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		8A65BA3520D6B39300552D85 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				8AC4709D21721836001577B9 /* 2018.xml */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -240,6 +247,13 @@
 				8A65BA3B20D83B8F00552D85 /* DependencyConfig.swift */,
 			);
 			path = "dependency-management";
+			sourceTree = "<group>";
+		};
+		8AA2D57B2163EEC70032AB23 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DF34150A346C62A28E6B894B /* Frameworks */ = {
@@ -363,6 +377,7 @@
 			files = (
 				8A65B9F020CC747A00552D85 /* LaunchScreen.storyboard in Resources */,
 				8A65B9ED20CC747A00552D85 /* Assets.xcassets in Resources */,
+				8AC4709E21721836001577B9 /* 2018.xml in Resources */,
 				8A65B9EB20CC747800552D85 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,9 +493,10 @@
 			files = (
 				8A65BA3320D6B07400552D85 /* ScheduleParser.swift in Sources */,
 				8A65BA1A20CD5DBF00552D85 /* DataReader.swift in Sources */,
+				8AA2D57F2163F4380032AB23 /* Schedule.swift in Sources */,
 				8A65B9E820CC747800552D85 /* TracksController.swift in Sources */,
 				8A65BA2E20CDC24800552D85 /* XMLDataReader.swift in Sources */,
-				8A65BA1D20CD5E7B00552D85 /* Talks.swift in Sources */,
+				8A65BA1D20CD5E7B00552D85 /* Talk.swift in Sources */,
 				8A65BA3C20D83B8F00552D85 /* DependencyConfig.swift in Sources */,
 				8A65BA3920D6B9F600552D85 /* DependecyFactory.swift in Sources */,
 				8A65B9E420CC747800552D85 /* AppDelegate.swift in Sources */,
@@ -494,7 +510,7 @@
 			files = (
 				8A65BA1B20CD5DBF00552D85 /* DataReader.swift in Sources */,
 				8A65B9FB20CC747A00552D85 /* fosdemTests.swift in Sources */,
-				8A65BA1E20CD5E7B00552D85 /* Talks.swift in Sources */,
+				8A65BA1E20CD5E7B00552D85 /* Talk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

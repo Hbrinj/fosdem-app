@@ -25,10 +25,14 @@ class DependencyFactory {
         return factoryInstance
     }
     
-    //TODO: make this more readable
     func insert(objectof type: Any, object: AnyObject) {
         let _type = String(describing: type)
         objects["\(_type)\(DEFAULT_QUALIFIER)"] = object as AnyObject
+    }
+    
+    func insert(objectof type: Any, object: AnyObject, with name: String) {
+        let _type = String(describing: type)
+        objects["\(_type)\(name)"] = object as AnyObject
     }
     
     private func getInstanceOf<T>(object type: Any, with qualifier: String = "none") -> T {

@@ -8,7 +8,6 @@
 
 import UIKit
 
-//TODO: Hello
 class ItineraryController: UIViewController {
 
     override func viewDidLoad() {
