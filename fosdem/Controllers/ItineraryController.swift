@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  ItineraryController.swift
 //  fosdem
 //
 //  Created by Houman Brinjcargorabi on 09/06/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class ItineraryController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

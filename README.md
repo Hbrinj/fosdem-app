@@ -1,0 +1,5 @@
+# Fosdem APP
+
+## Prerequisites
+	- CocoaPods
+
