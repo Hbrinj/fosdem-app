@@ -9,36 +9,78 @@
 import UIKit
 
 class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var schedule: Schedule!
-    var sectionedTracks: [Section<String>]!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //TODO: This should probably be in the dep factory somehow...
-        schedule = Schedule()
-        sectionedTracks = schedule.getSectionedTracks()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sectionedTracks[section].objects.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath)
-        cell.textLabel?.text = sectionedTracks[indexPath.section].objects[indexPath.row]
-        return cell
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionedTracks.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionedTracks[section].title
-    }
-    
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return sectionedTracks.map({$0.title})
-    }
+
+  @IBOutlet weak var tracksTableView: UITableView!
+
+  var schedule: Schedule!
+  var sectionedTracks: [Section<String>]!
+  var tracks: [String]!
+  var searchResults = [String]()
+  let searchController = UISearchController(searchResultsController: nil)
+
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    //TODO: This should probably be in the dep factory somehow...
+    schedule = Schedule()
+    sectionedTracks = schedule.getSectionedTracks()
+    tracks = schedule.getTracks()
+
+    // Setup
+    setupSearchBar()
+  }
+
+  // MARK: - Setup
+  private func setupSearchBar() {
+    searchController.searchResultsUpdater = self
+    searchController.obscuresBackgroundDuringPresentation = false
+    searchController.searchBar.placeholder = "Search Tracks"
+    navigationItem.searchController = searchController
+    navigationItem.hidesSearchBarWhenScrolling = false
+    definesPresentationContext = true
+  }
+
+  // MARK: -TableView
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return (searchBarIsEmpty() ? sectionedTracks[section].objects.count : searchResults.count)
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath)
+    cell.textLabel?.text =
+      (searchBarIsEmpty() ? sectionedTracks[indexPath.section].objects[indexPath.row] : searchResults[indexPath.row])
+    return cell
+  }
+
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return (searchBarIsEmpty() ? sectionedTracks.count : 1)
+  }
+
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return (searchBarIsEmpty() ? sectionedTracks[section].title : nil)
+  }
+
+  func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    return (searchBarIsEmpty() ? sectionedTracks.map({$0.title}) : [])
+  }
+
+  // MARK: -Search Helpers
+  private func searchBarIsEmpty() -> Bool {
+    return searchController.searchBar.text?.isEmpty ?? true
+  }
+
+  private func search(for searchText: String) {
+    searchResults = tracks.filter({
+      (track) -> Bool in
+      return track.uppercased().contains(searchText.uppercased())
+    })
+
+    tracksTableView.reloadData()
+  }
+}
+
+extension TracksController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    search(for: searchController.searchBar.text!)
+  }
 }
