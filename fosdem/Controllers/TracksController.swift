@@ -37,7 +37,12 @@ class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSo
     searchController.searchBar.placeholder = "Search Tracks"
     navigationItem.searchController = searchController
     navigationItem.hidesSearchBarWhenScrolling = false
+    navigationItem.title = "Fosdem Tracks"
     definesPresentationContext = true
+
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(TracksController.cancelSearch))
+    tapGesture.cancelsTouchesInView = false
+    tracksTableView.addGestureRecognizer(tapGesture)
   }
 
   // MARK: -TableView
@@ -64,6 +69,11 @@ class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSo
     return (searchBarIsEmpty() ? sectionedTracks.map({$0.title}) : [])
   }
 
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    if searchBarIsEmpty() { searchController.dismiss(animated: true, completion: nil) }
+    searchController.searchBar.endEditing(true)
+  }
+
   // MARK: -Search Helpers
   private func searchBarIsEmpty() -> Bool {
     return searchController.searchBar.text?.isEmpty ?? true
@@ -76,6 +86,14 @@ class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSo
     })
 
     tracksTableView.reloadData()
+  }
+
+  @objc func cancelSearch() {
+    print("hits")
+    if searchBarIsEmpty() {
+      searchController.dismiss(animated: true, completion: nil)
+    }
+    searchController.searchBar.endEditing(true)
   }
 }
 
