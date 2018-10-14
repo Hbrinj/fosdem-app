@@ -70,8 +70,7 @@ class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
 
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    if searchBarIsEmpty() { searchController.dismiss(animated: true, completion: nil) }
-    searchController.searchBar.endEditing(true)
+    cancelSearch()
   }
 
   // MARK: -Search Helpers
@@ -89,7 +88,6 @@ class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
 
   @objc func cancelSearch() {
-    print("hits")
     if searchBarIsEmpty() {
       searchController.dismiss(animated: true, completion: nil)
     }
