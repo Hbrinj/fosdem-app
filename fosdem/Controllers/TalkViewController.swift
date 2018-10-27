@@ -34,7 +34,9 @@ class TalkViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
     let cell = tableView.dequeueReusableCell(withIdentifier: "genericCell", for: indexPath) as! GenericLabelCell
+
     switch talkCells[indexPath.row] {
     case .talkTitle:
       setupLabel(cell.genericLabel!, with: talk!.title)
@@ -47,6 +49,7 @@ class TalkViewController: UIViewController, UITableViewDelegate, UITableViewData
     case .talkDescription:
       setupLabel(cell.genericLabel!, with: stripHtml(from: talk!.abstract))
     }
+
     return cell
   }
 
@@ -60,6 +63,10 @@ class TalkViewController: UIViewController, UITableViewDelegate, UITableViewData
   private func stripHtml(from text: String) -> String {
     return text.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
   }
+
+  @IBAction func addTalkToSchedule(_ sender: UIButton) {
+    //TODO: Add to a schedule of some sort
+  }
 }
 
 extension UILabel {
@@ -72,38 +79,4 @@ extension UILabel {
     return lines
   }
 
-}
-
-extension UINavigationItem {
-
-  func setTitle(title:String, subtitle:String) {
-
-    let one = UILabel()
-    one.text = title
-    one.lineBreakMode = .byWordWrapping
-    one.numberOfLines = 2
-    one.font = UIFont.systemFont(ofSize: 17)
-    one.sizeToFit()
-
-    let two = UILabel()
-    two.text = subtitle
-    two.lineBreakMode = .byTruncatingTail
-    two.numberOfLines = 2
-    two.font = UIFont.systemFont(ofSize: 12)
-    two.textColor = UIColor.lightGray
-    two.textAlignment = .center
-    two.sizeToFit()
-
-    let stackView = UIStackView(arrangedSubviews: [one, two])
-    stackView.distribution = .equalCentering
-    stackView.axis = .vertical
-
-    let width = max(one.frame.size.width, two.frame.size.width)
-    stackView.frame = CGRect(x: 0, y: 0, width: width, height: 55)
-
-    //one.sizeToFit()
-    //two.sizeToFit()
-
-    self.titleView = stackView
-  }
 }

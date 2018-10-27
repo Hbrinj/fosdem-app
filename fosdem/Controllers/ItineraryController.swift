@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CalendarKit
 
-class ItineraryController: UIViewController {
+class ItineraryController: UIViewController, DayViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
