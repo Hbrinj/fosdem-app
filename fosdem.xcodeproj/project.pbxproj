@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		45F82175335E683D317222E4 /* Pods_fosdem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0281843DAF4A83055EF3F25 /* Pods_fosdem.framework */; };
 		75FACA35EB4CCDF745BD7AD8 /* Pods_fosdemUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861E6776CAC558404783E17B /* Pods_fosdemUITests.framework */; };
+		8A0CCE9121848C0600BC5088 /* GenericLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0CCE9021848C0600BC5088 /* GenericLabelCell.swift */; };
 		8A65B9E420CC747800552D85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9E320CC747800552D85 /* AppDelegate.swift */; };
 		8A65B9E620CC747800552D85 /* ItineraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9E520CC747800552D85 /* ItineraryController.swift */; };
 		8A65B9E820CC747800552D85 /* TracksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65B9E720CC747800552D85 /* TracksController.swift */; };
@@ -26,6 +27,10 @@
 		8A65BA3920D6B9F600552D85 /* DependecyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA3820D6B9F600552D85 /* DependecyFactory.swift */; };
 		8A65BA3C20D83B8F00552D85 /* DependencyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65BA3B20D83B8F00552D85 /* DependencyConfig.swift */; };
 		8AA1211C217235F000E7A143 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1211B217235F000E7A143 /* Section.swift */; };
+		8AA1211E2173AA0F00E7A143 /* TrackTalksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1211D2173AA0F00E7A143 /* TrackTalksViewController.swift */; };
+		8AA121202173B8A800E7A143 /* TrackTalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1211F2173B8A800E7A143 /* TrackTalkCell.swift */; };
+		8AA121222174EC8800E7A143 /* TalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA121212174EC8700E7A143 /* TalkViewController.swift */; };
+		8AA12126218254D600E7A143 /* TalkCellTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA12125218254D600E7A143 /* TalkCellTypes.swift */; };
 		8AA2D57F2163F4380032AB23 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA2D57E2163F4380032AB23 /* Schedule.swift */; };
 		8AC4709E21721836001577B9 /* 2018.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8AC4709D21721836001577B9 /* 2018.xml */; };
 		F237F7D8C61A71C64669B9FE /* Pods_fosdemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FC5F99583F8914D29A8A42 /* Pods_fosdemTests.framework */; };
@@ -52,6 +57,7 @@
 		5AA53B8576BEBDD18A56C73C /* Pods-fosdem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fosdem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fosdem/Pods-fosdem.debug.xcconfig"; sourceTree = "<group>"; };
 		63FE2379C2D3F7D161506283 /* Pods-fosdemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fosdemTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fosdemTests/Pods-fosdemTests.release.xcconfig"; sourceTree = "<group>"; };
 		861E6776CAC558404783E17B /* Pods_fosdemUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fosdemUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A0CCE9021848C0600BC5088 /* GenericLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericLabelCell.swift; path = fosdem/Controllers/GenericLabelCell.swift; sourceTree = SOURCE_ROOT; };
 		8A65B9E020CC747700552D85 /* fosdem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fosdem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A65B9E320CC747800552D85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A65B9E520CC747800552D85 /* ItineraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryController.swift; sourceTree = "<group>"; };
@@ -73,6 +79,10 @@
 		8A65BA3820D6B9F600552D85 /* DependecyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependecyFactory.swift; sourceTree = "<group>"; };
 		8A65BA3B20D83B8F00552D85 /* DependencyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DependencyConfig.swift; path = "Fosdem/dependency-management/DependencyConfig.swift"; sourceTree = SOURCE_ROOT; };
 		8AA1211B217235F000E7A143 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		8AA1211D2173AA0F00E7A143 /* TrackTalksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTalksViewController.swift; sourceTree = "<group>"; };
+		8AA1211F2173B8A800E7A143 /* TrackTalkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrackTalkCell.swift; path = fosdem/Controllers/TrackTalkCell.swift; sourceTree = SOURCE_ROOT; };
+		8AA121212174EC8700E7A143 /* TalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkViewController.swift; sourceTree = "<group>"; };
+		8AA12125218254D600E7A143 /* TalkCellTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TalkCellTypes.swift; path = fosdem/Controllers/TalkCellTypes.swift; sourceTree = SOURCE_ROOT; };
 		8AA2D57E2163F4380032AB23 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = Fosdem/Models/Schedule.swift; sourceTree = SOURCE_ROOT; };
 		8AC4709D21721836001577B9 /* 2018.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 2018.xml; path = Fosdem/Assets/Schedule/2018.xml; sourceTree = SOURCE_ROOT; };
 		B8FC5F99583F8914D29A8A42 /* Pods_fosdemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fosdemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +196,8 @@
 				8AA2D57B2163EEC70032AB23 /* Cells */,
 				8A65B9E720CC747800552D85 /* TracksController.swift */,
 				8A65B9E520CC747800552D85 /* ItineraryController.swift */,
+				8AA1211D2173AA0F00E7A143 /* TrackTalksViewController.swift */,
+				8AA121212174EC8700E7A143 /* TalkViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -255,6 +267,9 @@
 		8AA2D57B2163EEC70032AB23 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				8AA1211F2173B8A800E7A143 /* TrackTalkCell.swift */,
+				8AA12125218254D600E7A143 /* TalkCellTypes.swift */,
+				8A0CCE9021848C0600BC5088 /* GenericLabelCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -496,15 +511,20 @@
 			files = (
 				8A65BA3320D6B07400552D85 /* ScheduleParser.swift in Sources */,
 				8A65BA1A20CD5DBF00552D85 /* DataReader.swift in Sources */,
+				8AA121202173B8A800E7A143 /* TrackTalkCell.swift in Sources */,
 				8AA2D57F2163F4380032AB23 /* Schedule.swift in Sources */,
 				8A65B9E820CC747800552D85 /* TracksController.swift in Sources */,
+				8AA1211E2173AA0F00E7A143 /* TrackTalksViewController.swift in Sources */,
 				8AA1211C217235F000E7A143 /* Section.swift in Sources */,
 				8A65BA2E20CDC24800552D85 /* XMLDataReader.swift in Sources */,
 				8A65BA1D20CD5E7B00552D85 /* Talk.swift in Sources */,
 				8A65BA3C20D83B8F00552D85 /* DependencyConfig.swift in Sources */,
+				8AA121222174EC8800E7A143 /* TalkViewController.swift in Sources */,
 				8A65BA3920D6B9F600552D85 /* DependecyFactory.swift in Sources */,
 				8A65B9E420CC747800552D85 /* AppDelegate.swift in Sources */,
 				8A65B9E620CC747800552D85 /* ItineraryController.swift in Sources */,
+				8A0CCE9121848C0600BC5088 /* GenericLabelCell.swift in Sources */,
+				8AA12126218254D600E7A143 /* TalkCellTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
