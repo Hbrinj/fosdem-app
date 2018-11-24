@@ -7,7 +7,7 @@ target 'fosdem' do
 
   # Pods for fosdem
   pod "SwiftyXMLParser", :git => 'https://github.com/yahoojapan/SwiftyXMLParser.git'
-  pod "CalendarKit"
+  pod "DateToolsSwift", '~> 4.0.0'
 
   target 'fosdemTests' do
     inherit! :search_paths
