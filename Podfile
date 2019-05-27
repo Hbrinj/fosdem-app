@@ -8,6 +8,8 @@ target 'fosdem' do
   # Pods for fosdem
   pod "SwiftyXMLParser", :git => 'https://github.com/yahoojapan/SwiftyXMLParser.git'
   pod "DateToolsSwift", '~> 4.0.0'
+  pod 'Swinject', '~> 2.6.0'
+  pod 'SwinjectStoryboard', '~> 2.2.0'
 
   target 'fosdemTests' do
     inherit! :search_paths

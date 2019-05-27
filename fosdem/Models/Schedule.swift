@@ -9,12 +9,13 @@
 import Foundation
 
 class Schedule {
-    let talks: [Talk]
+  let reader: DataReader
+  var talks: [Talk]
     
-    init() {
-        let reader: DataReader = DependencyFactory.getInstanceOf(object: DataReader.self)
-        talks = reader.parseSchedule()
-    }
+  init(reader: DataReader) {
+    self.reader = reader
+    talks = reader.parseSchedule()
+  }
     
     func getTracks() -> [String] {
         return Array(Set(talks.map({$0.track})))
