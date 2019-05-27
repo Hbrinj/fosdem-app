@@ -48,8 +48,8 @@ class Schedule {
         return ["derp"]
     }
     
-    func getTalksForParticularTopic(_ topic: String) -> [Talk] {
-        return talks.filter({$0.track == topic}).sorted(by: {$0.title < $1.title})
+    func getTalks(for track: String) -> [Talk] {
+        return talks.filter({$0.track == track}).sorted(by: {$0.title < $1.title})
     }
     
 }

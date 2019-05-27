@@ -12,12 +12,13 @@ class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
   @IBOutlet weak var tracksTableView: UITableView!
 
+  private let SHOW_TRACK_TALKS_SEGUE = "trackTalksSegue"
+
   var schedule: Schedule!
   var sectionedTracks: [Section<String>]!
   var tracks: [String]!
   var searchResults = [String]()
   let searchController = UISearchController(searchResultsController: nil)
-
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,6 +29,7 @@ class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     // Setup
     setupSearchBar()
+    setupNavigation()
   }
 
   // MARK: - Setup
@@ -35,14 +37,17 @@ class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSo
     searchController.searchResultsUpdater = self
     searchController.obscuresBackgroundDuringPresentation = false
     searchController.searchBar.placeholder = "Search Tracks"
-    navigationItem.searchController = searchController
-    navigationItem.hidesSearchBarWhenScrolling = false
-    navigationItem.title = "Fosdem Tracks"
-    definesPresentationContext = true
 
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(TracksController.cancelSearch))
     tapGesture.cancelsTouchesInView = false
     tracksTableView.addGestureRecognizer(tapGesture)
+  }
+
+  private func setupNavigation() {
+    navigationItem.searchController = searchController
+    navigationItem.hidesSearchBarWhenScrolling = false
+    navigationItem.title = "Tracks"
+    definesPresentationContext = true
   }
 
   // MARK: -TableView
@@ -70,8 +75,7 @@ class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
 
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    if searchBarIsEmpty() { searchController.dismiss(animated: true, completion: nil) }
-    searchController.searchBar.endEditing(true)
+    cancelSearch()
   }
 
   // MARK: -Search Helpers
@@ -89,11 +93,31 @@ class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
 
   @objc func cancelSearch() {
-    print("hits")
     if searchBarIsEmpty() {
       searchController.dismiss(animated: true, completion: nil)
     }
     searchController.searchBar.endEditing(true)
+  }
+
+  // MARK: -Segues
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segue.identifier {
+    case SHOW_TRACK_TALKS_SEGUE:
+      setupTrackTalks(for: segue)
+      break
+    default:
+      return
+    }
+  }
+
+  private func setupTrackTalks(for segue: UIStoryboardSegue) {
+    if let indexPath = tracksTableView.indexPathForSelectedRow {
+      let track = (searchBarIsEmpty() ? sectionedTracks[indexPath.section].objects[indexPath.row] : tracks[indexPath.row])
+      let talks = schedule.getTalks(for: track)
+      let controller = segue.destination as! TrackTalksViewController
+      controller.talks = talks
+      controller.viewTitle = track
+    }
   }
 }
 
