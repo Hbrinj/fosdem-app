@@ -14,18 +14,16 @@ class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
   private let SHOW_TRACK_TALKS_SEGUE = "trackTalksSegue"
 
-  var schedule: Schedule!
-  var sectionedTracks: [Section<String>]!
-  var tracks: [String]!
-  var searchResults = [String]()
-  let searchController = UISearchController(searchResultsController: nil)
+  var schedule: Schedule?
+  private var sectionedTracks: [Section<String>]!
+  private var tracks: [String]!
+  private var searchResults = [String]()
+  private let searchController = UISearchController(searchResultsController: nil)
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    //TODO: This should probably be in the dep factory somehow...
-    schedule = Schedule()
-    sectionedTracks = schedule.getSectionedTracks()
-    tracks = schedule.getTracks()
+    sectionedTracks = schedule!.getSectionedTracks()
+    tracks = schedule!.getTracks()
 
     // Setup
     setupSearchBar()
@@ -113,7 +111,7 @@ class TracksController: UIViewController, UITableViewDelegate, UITableViewDataSo
   private func setupTrackTalks(for segue: UIStoryboardSegue) {
     if let indexPath = tracksTableView.indexPathForSelectedRow {
       let track = (searchBarIsEmpty() ? sectionedTracks[indexPath.section].objects[indexPath.row] : tracks[indexPath.row])
-      let talks = schedule.getTalks(for: track)
+      let talks = schedule!.getTalks(for: track)
       let controller = segue.destination as! TrackTalksViewController
       controller.talks = talks
       controller.viewTitle = track
