@@ -10,6 +10,7 @@ target 'fosdem' do
   pod "DateToolsSwift", '~> 4.0.0'
   pod 'Swinject', '~> 2.6.0'
   pod 'SwinjectStoryboard', '~> 2.2.0'
+  pod 'RealmSwift', '~> 3.14.2'
 
   target 'fosdemTests' do
     inherit! :search_paths

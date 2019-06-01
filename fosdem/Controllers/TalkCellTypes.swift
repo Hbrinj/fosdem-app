@@ -12,4 +12,5 @@ enum TalkCellType {
   case talkTitle
   case talkSubtitle
   case talkDescription
+  case scheduleButton
 }

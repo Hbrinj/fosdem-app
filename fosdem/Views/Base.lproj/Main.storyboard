@@ -12,8 +12,42 @@
         <!--Itinerary-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" userLabel="Itinerary" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first-1" id="acW-dT-cKf"/>
+                <viewController id="9pv-A4-QxB" userLabel="Itinerary" customClass="ScheduleController" customModule="fosdem" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6kI-mz-I2e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScheduleCell" id="OxI-PN-1Bv" customClass="ScheduleCell" customModule="fosdem" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OxI-PN-1Bv" id="AQW-Un-aKW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B13-Tb-SJK">
+                                            <rect key="frame" x="16" y="11" width="71" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="B13-Tb-SJK" id="IfM-dc-PgZ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9pv-A4-QxB" id="L4X-KD-17h"/>
+                            <outlet property="delegate" destination="9pv-A4-QxB" id="MSZ-Ud-Ncz"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="first-1" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="tableView" destination="6kI-mz-I2e" id="xVc-JC-44t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,7 +92,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second-1" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Tracks" image="second-1" id="cPa-gy-q4n"/>
                     <navigationItem key="navigationItem" title="Tracks" id="oFJ-Ng-gkY" userLabel="navigationItem"/>
                     <connections>
                         <outlet property="tracksTableView" destination="CX5-gY-cw3" id="UdQ-4V-pw1"/>
@@ -172,7 +206,6 @@
                 <navigationController id="C9m-on-3Gz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="lT3-98-8O7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hc8-2K-sRt">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -192,7 +225,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Iw-vy-LBW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="7.5" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="genericCell" id="ZkG-wq-yCA" customClass="GenericLabelCell" customModule="fosdem" customModuleProvider="target">
@@ -220,42 +253,37 @@
                                             <outlet property="genericLabel" destination="gNe-Qs-rac" id="rfT-hN-uec"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleButtonCell" id="sEk-Oy-Nk3">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sEk-Oy-Nk3" id="XGO-TW-afB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kB-GC-bI2" userLabel="schedule">
+                                                    <rect key="frame" x="155" y="6" width="64" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Schedule"/>
+                                                    <connections>
+                                                        <action selector="addTalkToSchedule:" destination="Q36-k9-UC7" eventType="touchUpInside" id="voS-c1-kMZ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Q36-k9-UC7" id="MdF-GJ-EIy"/>
                                     <outlet property="delegate" destination="Q36-k9-UC7" id="Ljg-Gf-DES"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2o-XX-dHy" userLabel="button area">
-                                <rect key="frame" x="0.0" y="559" width="375" height="46"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6m-CZ-63K">
-                                        <rect key="frame" x="0.0" y="8" width="375" height="30"/>
-                                        <state key="normal" title="Schedule"/>
-                                        <connections>
-                                            <action selector="addTalkToSchedule:" destination="Q36-k9-UC7" eventType="touchUpInside" id="NOP-W5-N9c"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="w6m-CZ-63K" secondAttribute="bottom" constant="8" id="YiI-We-BGv"/>
-                                    <constraint firstItem="w6m-CZ-63K" firstAttribute="width" secondItem="S2o-XX-dHy" secondAttribute="width" id="cWv-CJ-6pQ"/>
-                                    <constraint firstItem="w6m-CZ-63K" firstAttribute="top" secondItem="S2o-XX-dHy" secondAttribute="topMargin" id="ib4-ZM-NgY"/>
-                                    <constraint firstItem="w6m-CZ-63K" firstAttribute="centerX" secondItem="S2o-XX-dHy" secondAttribute="centerX" id="rFf-XA-KKV"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5Iw-vy-LBW" firstAttribute="centerY" secondItem="oKp-wu-vwR" secondAttribute="centerY" constant="-58" id="7aj-Wo-mis"/>
-                            <constraint firstItem="S2o-XX-dHy" firstAttribute="width" secondItem="oKp-wu-vwR" secondAttribute="width" id="Hf3-UX-jbJ"/>
-                            <constraint firstItem="5Iw-vy-LBW" firstAttribute="centerX" secondItem="oKp-wu-vwR" secondAttribute="centerX" id="Kuk-Ot-eTw"/>
-                            <constraint firstItem="5Iw-vy-LBW" firstAttribute="height" secondItem="oKp-wu-vwR" secondAttribute="height" constant="-116" id="Uw1-AQ-Rv8"/>
-                            <constraint firstItem="S2o-XX-dHy" firstAttribute="top" secondItem="5Iw-vy-LBW" secondAttribute="bottom" constant="8" id="ZHu-XL-73y"/>
-                            <constraint firstItem="5Iw-vy-LBW" firstAttribute="width" secondItem="oKp-wu-vwR" secondAttribute="width" id="kT2-M0-Frp"/>
-                            <constraint firstItem="S2o-XX-dHy" firstAttribute="bottom" secondItem="ecl-Wg-Mpu" secondAttribute="bottom" constant="-13" id="m4Q-4b-s1q"/>
-                            <constraint firstItem="S2o-XX-dHy" firstAttribute="leading" secondItem="5Iw-vy-LBW" secondAttribute="leading" id="yrO-I4-EGR"/>
+                            <constraint firstItem="5Iw-vy-LBW" firstAttribute="centerY" secondItem="ecl-Wg-Mpu" secondAttribute="centerY" id="Rwp-Dx-Oan"/>
+                            <constraint firstItem="5Iw-vy-LBW" firstAttribute="height" secondItem="oKp-wu-vwR" secondAttribute="height" id="hVN-VV-kk6"/>
+                            <constraint firstItem="5Iw-vy-LBW" firstAttribute="centerX" secondItem="ecl-Wg-Mpu" secondAttribute="centerX" id="jGK-xG-R9W"/>
+                            <constraint firstItem="5Iw-vy-LBW" firstAttribute="width" secondItem="oKp-wu-vwR" secondAttribute="width" id="vpU-fm-7kn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ecl-Wg-Mpu"/>
                     </view>

@@ -8,21 +8,26 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class TalkViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet var talkTableView: UITableView!
 
   var talk: Talk?
-  var talkCells = [TalkCellType.talkTitle,TalkCellType.talkSubtitle, TalkCellType.talkDescription]
-
-
+  var talkCells = [TalkCellType.talkTitle,
+                   TalkCellType.talkSubtitle,
+                   TalkCellType.talkDescription,
+                   TalkCellType.scheduleButton]
+  var realm: Realm?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     talkTableView.separatorColor = UIColor.clear
     talkTableView.rowHeight = UITableView.automaticDimension
     talkTableView.allowsSelection = false
     navigationItem.title = ""
+    realm = try! Realm()
   }
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -35,19 +40,27 @@ class TalkViewController: UIViewController, UITableViewDelegate, UITableViewData
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let cell = tableView.dequeueReusableCell(withIdentifier: "genericCell", for: indexPath) as! GenericLabelCell
+    var cell: UITableViewCell
 
     switch talkCells[indexPath.row] {
     case .talkTitle:
-      setupLabel(cell.genericLabel!, with: talk!.title)
-      cell.genericLabel!.textAlignment = .center
+      let genericCell = tableView.dequeueReusableCell(withIdentifier: "genericCell", for: indexPath) as! GenericLabelCell
+      setupLabel(genericCell.genericLabel!, with: talk!.title)
+      genericCell.genericLabel!.textAlignment = .center
+      cell = genericCell
     case .talkSubtitle:
-      setupLabel(cell.genericLabel!, with: talk!.subTitle!)
-      cell.genericLabel!.textColor = UIColor.darkGray
-      cell.genericLabel!.font = UIFont.systemFont(ofSize: 12)
-      cell.genericLabel!.textAlignment = .center
+      let genericCell = tableView.dequeueReusableCell(withIdentifier: "genericCell", for: indexPath) as! GenericLabelCell
+      setupLabel(genericCell.genericLabel!, with: talk!.subTitle!)
+      genericCell.genericLabel!.textColor = UIColor.darkGray
+      genericCell.genericLabel!.font = UIFont.systemFont(ofSize: 12)
+      genericCell.genericLabel!.textAlignment = .center
+      cell = genericCell
     case .talkDescription:
-      setupLabel(cell.genericLabel!, with: stripHtml(from: talk!.abstract))
+      let genericCell = tableView.dequeueReusableCell(withIdentifier: "genericCell", for: indexPath) as! GenericLabelCell
+      setupLabel(genericCell.genericLabel!, with: stripHtml(from: talk!.abstract))
+      cell = genericCell
+    case .scheduleButton:
+      cell = tableView.dequeueReusableCell(withIdentifier: "scheduleButtonCell", for: indexPath)
     }
 
     return cell
@@ -65,8 +78,13 @@ class TalkViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
 
   @IBAction func addTalkToSchedule(_ sender: UIButton) {
-    //TODO: Add to a schedule of some sort
+    print("HIT!")
+    try! realm?.write {
+      realm!.add(TalkObject.convert(from: talk!))
+    }
   }
+
+
 }
 
 extension UILabel {
