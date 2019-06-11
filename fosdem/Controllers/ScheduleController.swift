@@ -53,7 +53,6 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell", for: indexPath) as! ScheduleCell
     cell.titleLabel.text = talkObjects[indexPath.row].title
-    print("\(talkObjects[indexPath.row].title)")
     return cell
   }
 

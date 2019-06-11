@@ -15,11 +15,13 @@ class TalkViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBOutlet var talkTableView: UITableView!
 
   var talk: Talk?
-  var talkCells = [TalkCellType.talkTitle,
+  private var talkCells = [TalkCellType.talkTitle,
                    TalkCellType.talkSubtitle,
                    TalkCellType.talkDescription,
                    TalkCellType.scheduleButton]
-  var realm: Realm?
+  private let realm = try! Realm()
+  private var realmTalkObjectRef: Results<TalkObject>?
+  private var talkRemovedNotif: NotificationToken? = nil
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,7 +29,25 @@ class TalkViewController: UIViewController, UITableViewDelegate, UITableViewData
     talkTableView.rowHeight = UITableView.automaticDimension
     talkTableView.allowsSelection = false
     navigationItem.title = ""
-    realm = try! Realm()
+    realmTalkObjectRef = realm.objects(TalkObject.self).filter("id = %@", talk!.id)
+    setupTalkRemovedNotif()
+  }
+
+  // MARK: -Setup
+  private func setupTalkRemovedNotif() {
+    talkRemovedNotif = realmTalkObjectRef?.observe { [weak self] (changes: RealmCollectionChange) in
+        guard let tableView = self?.talkTableView else { return }
+        switch changes {
+        case .initial:
+          break
+        case .update(_,_,_,_):
+          guard let index = self?.talkCells.firstIndex(of: .scheduleButton) else { return }
+          let indexPath = IndexPath(row: index, section: 0)
+          self?.setupScheduleButton((tableView.cellForRow(at: indexPath) as! ScheduleButtonCell).scheduleButton)
+        case .error(let error):
+          fatalError("\(error)")
+        }
+      }
   }
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -60,7 +80,9 @@ class TalkViewController: UIViewController, UITableViewDelegate, UITableViewData
       setupLabel(genericCell.genericLabel!, with: stripHtml(from: talk!.abstract))
       cell = genericCell
     case .scheduleButton:
-      cell = tableView.dequeueReusableCell(withIdentifier: "scheduleButtonCell", for: indexPath)
+      let buttonCell = tableView.dequeueReusableCell(withIdentifier: "scheduleButtonCell", for: indexPath) as! ScheduleButtonCell
+      setupScheduleButton(buttonCell.scheduleButton)
+      cell = buttonCell
     }
 
     return cell
@@ -73,18 +95,35 @@ class TalkViewController: UIViewController, UITableViewDelegate, UITableViewData
     label.sizeToFit()
   }
 
+  private func setupScheduleButton(_ button: UIButton) {
+    if realmTalkObjectRef?.count != 0 {
+      button.setTitle("Remove From Schedule", for: UIControl.State.normal)
+    } else {
+      button.setTitle("Add to schedule", for: UIControl.State.normal)
+    }
+  }
+
   private func stripHtml(from text: String) -> String {
     return text.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
   }
 
-  @IBAction func addTalkToSchedule(_ sender: UIButton) {
-    print("HIT!")
-    try! realm?.write {
-      realm!.add(TalkObject.convert(from: talk!))
+  @IBAction func talkScheduleButton(_ sender: UIButton) {
+    // If its there remove it because we're showing a remove button
+    if realmTalkObjectRef?.first != nil {
+      guard let objectRef = realmTalkObjectRef?.first! else { return }
+      try! realm.write {
+        realm.delete(objectRef)
+      }
+    } else {
+      try! realm.write {
+        realm.add(TalkObject.convert(from: talk!))
+      }
     }
   }
 
-
+  deinit {
+    talkRemovedNotif?.invalidate()
+  }
 }
 
 extension UILabel {

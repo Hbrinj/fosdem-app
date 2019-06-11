@@ -32,6 +32,7 @@
 		8AEADEAA229C96DC004D10B2 /* SwinjectStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEADEA9229C96DC004D10B2 /* SwinjectStoryboard.swift */; };
 		8AEADEAC22A2AF07004D10B2 /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEADEAB22A2AF07004D10B2 /* ScheduleController.swift */; };
 		8AEADEAE22A30345004D10B2 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEADEAD22A30345004D10B2 /* ScheduleCell.swift */; };
+		8AEADEB022A44123004D10B2 /* ScheduleButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEADEAF22A44123004D10B2 /* ScheduleButtonCell.swift */; };
 		D9F330236F420129453641A0 /* Pods_fosdem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6E84D4E16DB7B31E988DA8 /* Pods_fosdem.framework */; };
 		F191C6A4FD0B4C71EDB58D11 /* Pods_fosdemUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF6E9F6D33F12ABECA06013 /* Pods_fosdemUITests.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,7 @@
 		8AEADEA9229C96DC004D10B2 /* SwinjectStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboard.swift; sourceTree = "<group>"; };
 		8AEADEAB22A2AF07004D10B2 /* ScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
 		8AEADEAD22A30345004D10B2 /* ScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleCell.swift; path = fosdem/Controllers/ScheduleCell.swift; sourceTree = SOURCE_ROOT; };
+		8AEADEAF22A44123004D10B2 /* ScheduleButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleButtonCell.swift; path = fosdem/Controllers/ScheduleButtonCell.swift; sourceTree = SOURCE_ROOT; };
 		8D6E84D4E16DB7B31E988DA8 /* Pods_fosdem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fosdem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF6E9F6D33F12ABECA06013 /* Pods_fosdemUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fosdemUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D913E268EDDB23913AF9E178 /* Pods-fosdemTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fosdemTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fosdemTests/Pods-fosdemTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				8AA1211F2173B8A800E7A143 /* TrackTalkCell.swift */,
+				8AEADEAF22A44123004D10B2 /* ScheduleButtonCell.swift */,
 				8AA12125218254D600E7A143 /* TalkCellTypes.swift */,
 				8A0CCE9021848C0600BC5088 /* GenericLabelCell.swift */,
 				8AEADEAD22A30345004D10B2 /* ScheduleCell.swift */,
@@ -524,6 +527,7 @@
 				8AEADEAC22A2AF07004D10B2 /* ScheduleController.swift in Sources */,
 				8AA121202173B8A800E7A143 /* TrackTalkCell.swift in Sources */,
 				8AEADEAA229C96DC004D10B2 /* SwinjectStoryboard.swift in Sources */,
+				8AEADEB022A44123004D10B2 /* ScheduleButtonCell.swift in Sources */,
 				8AA2D57F2163F4380032AB23 /* Schedule.swift in Sources */,
 				8A65B9E820CC747800552D85 /* TracksController.swift in Sources */,
 				8AA1211E2173AA0F00E7A143 /* TrackTalksViewController.swift in Sources */,

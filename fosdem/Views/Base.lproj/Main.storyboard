@@ -27,12 +27,15 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B13-Tb-SJK">
                                             <rect key="frame" x="16" y="11" width="71" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="B13-Tb-SJK" firstAttribute="width" secondItem="AQW-Un-aKW" secondAttribute="width" id="wI0-ez-HLh"/>
+                                        <constraint firstItem="B13-Tb-SJK" firstAttribute="leading" secondItem="AQW-Un-aKW" secondAttribute="leading" constant="16" id="xrj-z3-Wqb"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="titleLabel" destination="B13-Tb-SJK" id="IfM-dc-PgZ"/>
@@ -253,23 +256,28 @@
                                             <outlet property="genericLabel" destination="gNe-Qs-rac" id="rfT-hN-uec"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleButtonCell" id="sEk-Oy-Nk3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleButtonCell" id="sEk-Oy-Nk3" customClass="ScheduleButtonCell" customModule="fosdem" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sEk-Oy-Nk3" id="XGO-TW-afB">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kB-GC-bI2" userLabel="schedule">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kB-GC-bI2" userLabel="schedule">
                                                     <rect key="frame" x="155" y="6" width="64" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Schedule"/>
                                                     <connections>
-                                                        <action selector="addTalkToSchedule:" destination="Q36-k9-UC7" eventType="touchUpInside" id="voS-c1-kMZ"/>
+                                                        <action selector="talkScheduleButton:" destination="Q36-k9-UC7" eventType="touchUpInside" id="voS-c1-kMZ"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="8kB-GC-bI2" firstAttribute="width" secondItem="sEk-Oy-Nk3" secondAttribute="width" id="hJA-qR-8tj"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="scheduleButton" destination="8kB-GC-bI2" id="Un0-Qk-tq3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
