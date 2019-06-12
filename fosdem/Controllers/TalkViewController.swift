@@ -97,9 +97,11 @@ class TalkViewController: UIViewController, UITableViewDelegate, UITableViewData
 
   private func setupScheduleButton(_ button: UIButton) {
     if realmTalkObjectRef?.count != 0 {
-      button.setTitle("Remove From Schedule", for: UIControl.State.normal)
+      button.setTitle("Remove From Schedule", for: .normal)
+      button.setTitleColor(.red, for: .normal)
     } else {
-      button.setTitle("Add to schedule", for: UIControl.State.normal)
+      button.setTitle("Add to schedule", for: .normal)
+      button.setTitleColor(.systemBlue, for: .normal)
     }
   }
 
@@ -136,4 +138,8 @@ extension UILabel {
     return lines
   }
 
+}
+
+extension UIColor {
+  static let systemBlue = UIButton(type: .system).tintColor
 }
