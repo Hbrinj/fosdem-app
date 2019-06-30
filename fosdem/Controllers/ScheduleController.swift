@@ -12,6 +12,7 @@ import RealmSwift
 class ScheduleController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet var tableView: UITableView!
+  private let realm = try! Realm()
   private let talkObjects = try! Realm().objects(TalkObject.self)
   private var dataNotifToken: NotificationToken? = nil
 
@@ -54,6 +55,18 @@ class ScheduleController: UIViewController, UITableViewDelegate, UITableViewData
     let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell", for: indexPath) as! ScheduleCell
     cell.titleLabel.text = talkObjects[indexPath.row].title
     return cell
+  }
+
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    let deleteAction = UIContextualAction(style: .normal, title:  "Remove") { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+      try! self.realm.write {
+        self.realm.delete(self.talkObjects[indexPath.row])
+      }
+      success(true)
+    }
+    deleteAction.backgroundColor = .red
+
+    return UISwipeActionsConfiguration(actions: [deleteAction])
   }
 
   deinit {
