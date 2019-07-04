@@ -12,6 +12,8 @@ import RealmSwift
 struct Talk {
   let id: Int
   let title: String
+  let room: String
+  let day: String
   let subTitle: String?
   let startTime: String
   let duration: String
@@ -28,6 +30,8 @@ class TalkObject: Object {
   func create(from talk: Talk) {
     self.id = talk.id
     self.title = talk.title
+    self.room = talk.room
+    self.day = talk.day
     self.subTitle = talk.subTitle
     self.startTime = talk.startTime
     self.duration = talk.duration
@@ -59,6 +63,8 @@ class TalkObject: Object {
 
     return Talk(id: self.id,
                 title: self.title,
+                room: self.room,
+                day: self.day,
                 subTitle: self.subTitle,
                 startTime: self.startTime,
                 duration: self.duration,
@@ -82,6 +88,8 @@ class TalkObject: Object {
 
   @objc dynamic var id: Int = 0
   @objc dynamic var title: String = ""
+  @objc dynamic var room: String = ""
+  @objc dynamic var day: String = ""
   @objc dynamic var subTitle: String? = ""
   @objc dynamic var startTime: String = ""
   @objc dynamic var duration: String = ""
